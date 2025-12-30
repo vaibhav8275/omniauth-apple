@@ -34,6 +34,22 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 end
 ```
 
+## Devise Usage with OmniAuth.
+
+```
+  config.omniauth :apple,
+    ENV["APPLE_CLIENT_ID"],
+    nil,
+    {
+      scope: "email name",
+      team_id: ENV["APPLE_TEAM_ID"],
+      key_id: ENV["APPLE_KEY_ID"],
+      pem: ENV["APPLE_PRIVATE_KEY"],
+      response_type: "code",
+      response_mode: "form_post",
+      rails8_compatibility: true  # Enable Rails 8 compatibility mode
+    }
+```
 ## Configuring "Sign In with Apple"
 
 _other Sign In with Apple guides:_

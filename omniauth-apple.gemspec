@@ -36,11 +36,18 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'omniauth-oauth2'
-  spec.add_dependency 'jwt'
-  spec.add_development_dependency "bundler", "~> 2.0"
-  spec.add_development_dependency "rake", "~> 13.0"
-  spec.add_development_dependency "rspec", "~> 3.9"
-  spec.add_development_dependency "webmock", "~> 3.8"
-  spec.add_development_dependency "simplecov", "~> 0.18"
+  spec.required_ruby_version = '>= 3.0.0'
+  
+  spec.add_dependency 'omniauth-oauth2', '>= 1.8.0'
+  spec.add_dependency 'json-jwt', '>= 1.15.0'
+  
+  # Rails 8 compatibility requirements
+  spec.add_dependency 'omniauth', '>= 2.1.0'
+  spec.add_dependency 'oauth2', '>= 2.0.0'
+  
+  spec.add_development_dependency "bundler", ">= 2.0"
+  spec.add_development_dependency "rake", ">= 13.0"
+  spec.add_development_dependency "rspec", ">= 3.9"
+  spec.add_development_dependency "webmock", ">= 3.8"
+  spec.add_development_dependency "simplecov", ">= 0.18"
 end
